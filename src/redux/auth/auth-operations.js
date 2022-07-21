@@ -24,6 +24,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
     return data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
+    console.log(error)
   }
 });
 
@@ -85,10 +86,10 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
-const operations = {
+const authOperations = {
   register,
   logOut,
   logIn,
   fetchCurrentUser,
 };
-export default operations;
+export default authOperations;

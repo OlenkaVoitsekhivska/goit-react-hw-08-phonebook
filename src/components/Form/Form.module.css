@@ -1,4 +1,4 @@
-form {
+/* form {
   display: flex;
   flex-direction: column;
   width: 500px;
@@ -6,7 +6,7 @@ form {
   margin-right: auto;
   padding-top: 25px;
   padding-bottom: 50px;
-  outline: 1px solid #161d29;
+
 }
 .submitBtn {
   display: block;
@@ -43,4 +43,4 @@ form label {
   font-weight: 700;
   margin-left: auto;
   margin-right: auto;
-}
+} */

@@ -1,20 +1,40 @@
 import style from './ContactsItem.module.css';
 import PropTypes from 'prop-types';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
-function ContactsItem({ name, phone, onDeleteContact }) {
+function ContactsItem({ name, number, onDeleteContact }) {
   return (
-    <li className={style.contactItem}>
-      <p className={style.contName}>{name}</p>
-      <p className={style.contNumber}>{phone}</p>
-      <button onClick={onDeleteContact} className={style.contBtn}>
+    <Box
+      element="li"
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        mb: '15px',
+        borderBottom: '2px solid #a6a4a1',
+      }}
+    >
+      <Box>
+        <p className={style.contName}>{name}</p>
+        <p className={style.contNumber}>{number}</p>
+      </Box>
+      <Button
+        onClick={onDeleteContact}
+        variant="contained"
+        size="small"
+        sx={{
+          height: 'fit-content',
+        }}
+      >
         delete
-      </button>
-    </li>
+      </Button>
+    </Box>
   );
 }
 ContactsItem.propTypes = {
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
 
