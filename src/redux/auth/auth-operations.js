@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -24,7 +25,21 @@ const register = createAsyncThunk('auth/register', async credentials => {
     return data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
-    console.log(error)
+
+    if (error.response.data.name === 'MongoError') {
+      toast.error('Invalid name');
+    }
+    if (error.response.data.errors.password) {
+      toast.error(
+        `Your password ${error.response.data.errors.password.message
+          .split(' ')
+          .splice(3)
+          .join(' ')}`
+      );
+    }
+    if (error.response.data.errors.email) {
+      toast.error(error.response.data.errors.email.message);
+    }
   }
 });
 
@@ -40,6 +55,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     return data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
+   toast.error("Weren't able to fetch your data. Please doublecheck your email and password")
   }
 });
 

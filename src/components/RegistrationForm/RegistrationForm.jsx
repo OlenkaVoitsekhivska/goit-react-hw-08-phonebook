@@ -79,6 +79,7 @@ export default function RegistrationForm() {
         onChange={handleChange}
         value={password}
         sx={{ mb: '25px', width: '60%' }}
+        minLength='7'
       />
 
       <Button
