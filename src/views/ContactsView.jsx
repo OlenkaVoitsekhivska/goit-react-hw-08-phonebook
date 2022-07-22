@@ -7,6 +7,7 @@ const ContactsView = () => {
     <Box
       sx={{
         display: 'flex',
+        justifyContent:'center',
         ml: 'auto',
         mr: 'auto',
       }}
